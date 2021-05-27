@@ -611,7 +611,7 @@ class ConvexAppBarState extends State<ConvexAppBar>
 
     return Container(
       height: height + MediaQuery.of(context).padding.bottom,
-      padding: EdgeInsets.only(bottom: paddingBottom),
+      // padding: EdgeInsets.only(bottom: paddingBottom),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,

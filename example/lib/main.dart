@@ -54,6 +54,7 @@ class HelloConvexAppBar extends StatelessWidget {
         onPressed: () => Navigator.of(context).pushNamed('/bar'),
       )),
       bottomNavigationBar: ConvexAppBar(
+        curveSize: 0,
         style: TabStyle.fixedCircle,
         items: [
           TabItem(icon: Icons.list),

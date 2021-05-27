@@ -54,14 +54,11 @@ class FixedCircleTabStyle extends InnerBuilder {
         height: style.layoutSize,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: c,
-        ),
-        margin: EdgeInsets.all(margin),
-        child: BlendImageIcon(
-          active ? item.activeIcon ?? item.icon : item.icon,
-          size: style.activeIconSize,
           color: item.blend ? backgroundColor : null,
         ),
+        margin: EdgeInsets.all(0),
+        child: BlendImageIcon(active ? item.activeIcon ?? item.icon : item.icon,
+            size: style.activeIconSize, color: c),
       );
     }
 
