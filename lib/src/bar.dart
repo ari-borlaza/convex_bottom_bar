@@ -525,8 +525,7 @@ class ConvexAppBarState extends State<ConvexAppBar>
   @override
   Widget build(BuildContext context) {
     // take care of iPhoneX' safe area at bottom edge
-    final additionalBottomPadding =
-        math.max(MediaQuery.of(context).padding.bottom, 0.0);
+    final additionalBottomPadding = math.max(0.0, 0.0);
     final convexIndex = isFixed() ? (widget.count ~/ 2) : _currentIndex;
     final active = isFixed() ? convexIndex == _currentIndex : true;
 
@@ -548,7 +547,7 @@ class ConvexAppBarState extends State<ConvexAppBar>
       alignment: Alignment.bottomCenter,
       children: <Widget>[
         Container(
-          height: height,
+          height: height + MediaQuery.of(context).padding.bottom,
           width: width,
           child: CustomPaint(
             painter: ConvexPainter(
@@ -567,7 +566,8 @@ class ConvexAppBarState extends State<ConvexAppBar>
         _barContent(height, additionalBottomPadding, convexIndex),
         Positioned.fill(
           top: widget.top ?? CURVE_TOP,
-          bottom: additionalBottomPadding,
+          bottom:
+              additionalBottomPadding + MediaQuery.of(context).padding.bottom,
           child: FractionallySizedBox(
               widthFactor: factor,
               alignment: offset,
@@ -595,13 +595,22 @@ class ConvexAppBarState extends State<ConvexAppBar>
         child: GestureDetector(
           behavior: HitTestBehavior.opaque,
           onTap: () => _onTabClick(i),
-          child: _newTab(i, active),
+          child: Column(
+            children: [
+              Expanded(
+                child: Container(
+                  color: active ? Colors.grey.withOpacity(0.5) : Colors.black,
+                  child: _newTab(i, active),
+                ),
+              ),
+            ],
+          ),
         ),
       ));
     }
 
     return Container(
-      height: height,
+      height: height + MediaQuery.of(context).padding.bottom,
       padding: EdgeInsets.only(bottom: paddingBottom),
       child: Row(
         mainAxisSize: MainAxisSize.max,

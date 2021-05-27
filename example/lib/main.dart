@@ -58,7 +58,7 @@ class HelloConvexAppBar extends StatelessWidget {
         items: [
           TabItem(icon: Icons.list),
           TabItem(icon: Icons.calendar_today),
-          TabItem(icon: Icons.assessment),
+          TabItem(icon: Icons.assessment, title: "Title"),
         ],
         initialActiveIndex: 1,
         onTap: (int i) => print('click index=$i'),

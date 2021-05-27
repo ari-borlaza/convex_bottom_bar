@@ -77,7 +77,7 @@ class FixedCircleTabStyle extends InnerBuilder {
     return Column(
       children: [
         Container(
-          height: 1,
+          height: 4,
           decoration: BoxDecoration(color: c),
         ),
         Row(
@@ -85,9 +85,6 @@ class FixedCircleTabStyle extends InnerBuilder {
             Expanded(
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 1),
-                decoration: BoxDecoration(
-                    color:
-                        active ? Colors.grey.withOpacity(0.5) : Colors.black),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: children,
