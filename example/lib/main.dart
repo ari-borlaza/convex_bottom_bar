@@ -32,6 +32,10 @@ class _State extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.white,
+        accentColor: Colors.yellow,
+      ),
       initialRoute: "/",
       routes: {
         "/": (_) => HelloConvexAppBar(),
@@ -54,6 +58,8 @@ class HelloConvexAppBar extends StatelessWidget {
         onPressed: () => Navigator.of(context).pushNamed('/bar'),
       )),
       bottomNavigationBar: ConvexAppBar(
+        activeColor: Colors.yellow,
+        backgroundColor: Colors.black,
         curveSize: 0,
         style: TabStyle.fixedCircle,
         items: [

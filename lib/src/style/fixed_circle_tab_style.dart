@@ -44,7 +44,7 @@ class FixedCircleTabStyle extends InnerBuilder {
     var item = items[index];
     var style = ofStyle(context);
     var textStyle = style.textStyle(c);
-    var margin = style.activeIconMargin;
+    // var margin = style.activeIconMargin;
 
     if (index == convexIndex) {
       final item = items[index];
@@ -54,11 +54,12 @@ class FixedCircleTabStyle extends InnerBuilder {
         height: style.layoutSize,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: item.blend ? backgroundColor : null,
+          color: c,
         ),
-        margin: EdgeInsets.all(0),
+        // margin: EdgeInsets.all(0),
         child: BlendImageIcon(active ? item.activeIcon ?? item.icon : item.icon,
-            size: style.activeIconSize, color: c),
+            size: style.activeIconSize,
+            color: item.blend ? backgroundColor : null),
       );
     }
 
@@ -71,6 +72,7 @@ class FixedCircleTabStyle extends InnerBuilder {
     var children = noLabel
         ? <Widget>[icon]
         : <Widget>[icon, Text(item.title ?? '', style: textStyle)];
+        
     return Column(
       children: [
         Container(
