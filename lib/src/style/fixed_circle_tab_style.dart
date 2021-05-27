@@ -54,7 +54,7 @@ class FixedCircleTabStyle extends InnerBuilder {
         width: style.layoutSize,
         height: style.layoutSize,
         decoration: BoxDecoration(
-          border: Border.all(color: d, width: 2),
+          border: Border.all(color: d, width: 3),
           shape: BoxShape.circle,
           color: c,
         ),
@@ -79,7 +79,7 @@ class FixedCircleTabStyle extends InnerBuilder {
       children: [
         Container(
           height: 4,
-          decoration: BoxDecoration(color: c),
+          decoration: BoxDecoration(color: active ? activeColor : null),
         ),
         Row(
           children: [

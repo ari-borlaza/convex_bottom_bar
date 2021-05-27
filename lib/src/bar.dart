@@ -587,12 +587,14 @@ class ConvexAppBarState extends State<ConvexAppBar>
     var children = <Widget>[];
     for (var i = 0; i < widget.count; i++) {
       if (i == curveTabIndex) {
-        children.add(Expanded(
-            child: Column(
+        children.add(Expanded(child: Container()
+
+            /* Column(
           children: [
             Container(height: 4, color: Colors.white),
           ],
-        )));
+        ) */
+            ));
         continue;
       }
       var active = _currentIndex == i;
