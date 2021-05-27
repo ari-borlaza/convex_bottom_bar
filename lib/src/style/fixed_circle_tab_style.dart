@@ -41,6 +41,7 @@ class FixedCircleTabStyle extends InnerBuilder {
   @override
   Widget build(BuildContext context, int index, bool active) {
     var c = active ? activeColor : color;
+    var d = active ? color : activeColor;
     var item = items[index];
     var style = ofStyle(context);
     var textStyle = style.textStyle(c);
@@ -53,6 +54,7 @@ class FixedCircleTabStyle extends InnerBuilder {
         width: style.layoutSize,
         height: style.layoutSize,
         decoration: BoxDecoration(
+          border: Border.all(color: d, width: 1),
           shape: BoxShape.circle,
           color: c,
         ),
@@ -72,7 +74,7 @@ class FixedCircleTabStyle extends InnerBuilder {
     var children = noLabel
         ? <Widget>[icon]
         : <Widget>[icon, Text(item.title ?? '', style: textStyle)];
-        
+
     return Column(
       children: [
         Container(
