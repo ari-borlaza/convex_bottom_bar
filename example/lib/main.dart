@@ -64,7 +64,7 @@ class HelloConvexAppBar extends StatelessWidget {
         style: TabStyle.fixedCircle,
         items: [
           TabItem(icon: Icons.list),
-          TabItem(icon: Icons.calendar_today),
+          TabItem(icon: Icons.calendar_today, title: "Title"),
           TabItem(icon: Icons.assessment, title: "Title"),
         ],
         initialActiveIndex: 1,
