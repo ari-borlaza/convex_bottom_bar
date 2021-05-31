@@ -68,6 +68,7 @@ class FixedCircleTabStyle extends InnerBuilder {
         ),
         // margin: EdgeInsets.all(0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             BlendImageIcon(active ? item.activeIcon ?? item.icon : item.icon,
                 size: style.activeIconSize,
