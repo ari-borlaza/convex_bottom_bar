@@ -25,6 +25,7 @@ import 'inner_builder.dart';
 class FixedCircleTabStyle extends InnerBuilder {
   /// Color used as background of appbar and circle icon.
   final Color backgroundColor;
+  final Color activebgcolor;
 
   /// Index of the centered convex shape.
   final int convexIndex;
@@ -34,14 +35,24 @@ class FixedCircleTabStyle extends InnerBuilder {
       {required List<TabItem> items,
       required Color activeColor,
       required Color color,
+      required this.activebgcolor,
       required this.backgroundColor,
       required this.convexIndex})
-      : super(items: items, activeColor: activeColor, color: color);
+      : super(
+          items: items,
+          activeColor: activeColor,
+          color: color,
+        );
 
   @override
-  Widget build(BuildContext context, int index, bool active) {
+  Widget build(
+    BuildContext context,
+    int index,
+    bool active,
+  ) {
     var c = active ? activeColor : color;
     var d = active ? color : activeColor;
+    var e = active ? activebgcolor : backgroundColor;
     var item = items[index];
     var style = ofStyle(context);
     var textStyle = style.textStyle(c);
@@ -68,7 +79,7 @@ class FixedCircleTabStyle extends InnerBuilder {
         ),
         // margin: EdgeInsets.all(0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             BlendImageIcon(active ? item.activeIcon ?? item.icon : item.icon,
                 size: style.activeIconSize,
@@ -83,26 +94,30 @@ class FixedCircleTabStyle extends InnerBuilder {
         ? <Widget>[icon]
         : <Widget>[icon, Text(item.title ?? '', style: textStyle)];
 
-    return Column(
-      children: [
-        Container(
-          height: 4,
-          decoration: BoxDecoration(color: active ? activeColor : null),
-        ),
-        Row(
-          children: [
-            Expanded(
-              child: Container(
-                padding: EdgeInsets.symmetric(vertical: 1),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: children,
+    return Container(
+      color: e,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+            height: 4,
+            decoration: BoxDecoration(color: active ? activeColor : null),
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 1),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: children,
+                  ),
                 ),
-              ),
-            )
-          ],
-        )
-      ],
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 

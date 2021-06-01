@@ -27,6 +27,7 @@ void main() {
         child: Directionality(
           textDirection: TextDirection.rtl,
           child: ConvexAppBar(
+            activebgcolor: Colors.yellow,
             items: [
               TabItem(icon: Icons.gradient, title: ''),
               TabItem(icon: Icons.help_outline, title: ''),

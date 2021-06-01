@@ -206,6 +206,7 @@ class ConvexAppBar extends StatefulWidget {
     TabStyle? style,
     Curve? curve,
     ChipBuilder? chipBuilder,
+    required Color activebgcolor,
   }) : this.builder(
           key: key,
           itemBuilder: supportedStyle(
@@ -214,7 +215,8 @@ class ConvexAppBar extends StatefulWidget {
             color: color ?? Colors.white60,
             activeColor: activeColor ?? Colors.white,
             backgroundColor: backgroundColor ?? Colors.blue,
-            curve: curve ?? Curves.easeInOut,
+            curve: curve ?? Curves.easeInOut, 
+            activebgcolor: activebgcolor,
           ),
           onTap: onTap,
           onTapNotify: onTabNotify,
@@ -317,6 +319,8 @@ class ConvexAppBar extends StatefulWidget {
     double? cornerRadius,
     TabStyle? style,
     Curve? curve,
+    required Color activebgcolor,
+
   }) {
     DefaultChipBuilder? chipBuilder;
     if (badge.isNotEmpty) {
@@ -348,7 +352,7 @@ class ConvexAppBar extends StatefulWidget {
       cornerRadius: cornerRadius,
       style: style,
       curve: curve,
-      chipBuilder: chipBuilder,
+      chipBuilder: chipBuilder, activebgcolor: activebgcolor,
     );
   }
 

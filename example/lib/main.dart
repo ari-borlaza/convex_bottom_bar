@@ -58,8 +58,11 @@ class HelloConvexAppBar extends StatelessWidget {
         onPressed: () => Navigator.of(context).pushNamed('/bar'),
       )),
       bottomNavigationBar: ConvexAppBar(
-        activeColor: Colors.yellow,
-        backgroundColor: Colors.black,
+        activeColor: Color(0xFFfdd61a),
+        activebgcolor: Colors.grey,
+
+        // backgroundColor: Colors.blue,
+        color: Colors.deepOrange,
         curveSize: 0,
         style: TabStyle.fixedCircle,
         items: [

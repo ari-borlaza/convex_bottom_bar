@@ -34,6 +34,7 @@ DelegateBuilder supportedStyle(
   required Color color,
   required Color activeColor,
   required Color backgroundColor,
+  required  Color activebgcolor,
   required Curve curve,
 }) {
   assert(items.isNotEmpty, 'items should not be empty');
@@ -54,6 +55,7 @@ DelegateBuilder supportedStyle(
       break;
     case TabStyle.fixedCircle:
       builder = FixedCircleTabStyle(
+        activebgcolor:activebgcolor,
         items: items,
         color: color,
         activeColor: activeColor,

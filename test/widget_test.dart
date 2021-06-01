@@ -35,6 +35,7 @@ void main() {
     var tabController =
         TabController(length: 3, vsync: tester, initialIndex: 2);
     await tester.pumpWidget(material(ConvexAppBar(
+      activebgcolor: Colors.yellow,
       key: key,
       controller: tabController,
       items: [
@@ -61,6 +62,7 @@ void main() {
   testWidgets('TabStyle.reactCircle, selected tab has no text',
       (WidgetTester tester) async {
     await tester.pumpWidget(material(ConvexAppBar(
+      activebgcolor: Colors.yellow,
       items: [
         TabItem(title: 'Tab A', icon: Icons.add),
         TabItem(title: 'Tab B', icon: Icons.near_me),
@@ -85,6 +87,7 @@ void main() {
     await tester.pumpWidget(
       material(
         ConvexAppBar(
+          activebgcolor: Colors.yellow,
           items: [
             TabItem(title: 'Tab A', icon: Icons.add),
             TabItem(title: 'Tab B', icon: Icons.near_me),
@@ -134,6 +137,7 @@ void main() {
         material(DefaultTabController(
           length: 3,
           child: ConvexAppBar(
+            activebgcolor: Colors.yellow,
             key: ObjectKey(s),
             items: [
               TabItem(title: 'Tab A', icon: Icons.add),
@@ -173,6 +177,7 @@ void main() {
       material(DefaultTabController(
         length: 3,
         child: ConvexAppBar(
+          activebgcolor: Colors.yellow,
           items: [
             TabItem(title: 'Tab A', icon: Icons.add),
             TabItem(title: 'Tab B', icon: Icons.near_me),
@@ -255,6 +260,7 @@ void main() {
             TabItem(title: 'Tab E', icon: Container(width: 60, height: 60)),
           ],
           style: TabStyle.textIn,
+          activebgcolor: Colors.yellow,
         ),
       ),
       Duration(milliseconds: 300),
@@ -315,6 +321,7 @@ void main() {
           onTap: (i) {
             assert(i == 1);
           },
+          activebgcolor: Colors.yellow,
         ));
       } catch (e) {
         // takeException is not working here
@@ -350,6 +357,7 @@ void main() {
             TabItem(title: 'B', icon: Icons.add),
             TabItem(title: 'C', icon: Icons.add)
           ],
+          activebgcolor: Colors.yellow,
           cornerRadius: 25,
         ),
         Duration(milliseconds: 300),
@@ -363,6 +371,7 @@ void main() {
               TabItem(title: 'B', icon: Icons.add),
               TabItem(title: 'C', icon: Icons.add)
             ],
+            activebgcolor: Colors.yellow,
             cornerRadius: -25,
           ),
           Duration(milliseconds: 300),
@@ -392,6 +401,7 @@ void main() {
           TabItem(title: 'B', icon: Icons.add),
           TabItem(title: 'C', icon: Icons.add)
         ],
+        activebgcolor: Colors.yellow,
         onTabNotify: (_) {
           assert(_ == 1);
           return false;
