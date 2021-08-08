@@ -52,7 +52,7 @@ class FixedCircleTabStyle extends InnerBuilder {
   ) {
     var c = active ? activeColor : color;
     var d = active ? color : activeColor;
-    var e = active ? activebgcolor : backgroundColor;
+    var e = /* active ? activebgcolor :  */ backgroundColor;
     var item = items[index];
     var style = ofStyle(context);
     var textStyle = style.textStyle(c);
@@ -73,18 +73,24 @@ class FixedCircleTabStyle extends InnerBuilder {
         width: style.layoutSize,
         height: style.layoutSize,
         decoration: BoxDecoration(
-          // border: Border.all(color: d, width: 3),
-          shape: BoxShape.circle,
-          color: c,
-        ),
+            // border: Border.all(color: d, width: 3),
+            shape: BoxShape.circle,
+            // color: c,
+            gradient: LinearGradient(colors: [
+              Color(0xFFfa82a3),
+              Color(0xFFfbc500),
+            ], begin: Alignment.topRight, end: Alignment.bottomLeft)),
         // margin: EdgeInsets.all(0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            BlendImageIcon(active ? item.activeIcon ?? item.icon : item.icon,
-                size: style.activeIconSize,
-                color: item.blend ? backgroundColor : null),
-            Text(item.title ?? '', style: textStyle1)
+            Expanded(
+              child: BlendImageIcon(
+                  active ? item.activeIcon ?? item.icon : item.icon,
+                  size: style.activeIconSize,
+                  color: item.blend ? backgroundColor : null),
+            ),
+            // Text(item.title ?? '', style: textStyle1)
           ],
         ),
       );
@@ -92,29 +98,28 @@ class FixedCircleTabStyle extends InnerBuilder {
 
     var children = noLabel
         ? <Widget>[icon]
-        : <Widget>[icon, Text(item.title ?? '', style: textStyle)];
+        : <Widget>[
+            Center(child: icon),
+            Text(item.title ?? '', style: textStyle)
+          ];
 
     return Container(
       color: e,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            height: 4,
-            decoration: BoxDecoration(color: active ? activeColor : null),
-          ),
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 1),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: children,
-                  ),
-                ),
-              )
-            ],
+          // Container(
+          //   height: 4,
+          //   decoration: BoxDecoration(color: active ? activeColor : null),
+          // ),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 0.5),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: children,
+              ),
+            ),
           )
         ],
       ),
