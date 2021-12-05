@@ -90,6 +90,7 @@ class FixedCircleTabStyle extends InnerBuilder {
                   size: style.activeIconSize,
                   color: item.blend ? backgroundColor : null),
             ),
+
             // Text(item.title ?? '', style: textStyle1)
           ],
         ),
@@ -100,6 +101,7 @@ class FixedCircleTabStyle extends InnerBuilder {
         ? <Widget>[icon]
         : <Widget>[
             Center(child: icon),
+            item.title 
             // Text(item.title ?? '', style: textStyle)
           ];
 

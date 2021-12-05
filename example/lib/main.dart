@@ -61,6 +61,8 @@ class HelloConvexAppBar extends StatelessWidget {
         activeColor: Color(0xFFfdd61a),
         activebgcolor: Colors.grey,
 
+        backgroundColor: Colors.white,
+        curve: Curves.ease,
         // backgroundColor: Colors.blue,
         color: Colors.deepOrange,
         curveSize: 0,

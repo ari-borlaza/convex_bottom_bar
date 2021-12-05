@@ -19,7 +19,7 @@ import 'package:flutter/cupertino.dart';
 /// Tab item used for [ConvexAppBar].
 class TabItem<T> {
   /// Tab text.
-  final String? title;
+  final T? title;
 
   /// IconData or Image.
   ///
@@ -35,7 +35,7 @@ class TabItem<T> {
 
   /// Create item
   const TabItem({
-    this.title = '',
+    this.title ,
     required this.icon,
     this.activeIcon,
     bool? isIconBlend,
