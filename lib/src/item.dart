@@ -35,7 +35,7 @@ class TabItem<T> {
 
   /// Create item
   const TabItem({
-    this.title ,
+    this.title,
     required this.icon,
     this.activeIcon,
     bool? isIconBlend,
